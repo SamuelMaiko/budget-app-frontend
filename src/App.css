@@ -1,0 +1,20 @@
+.action-button:hover .action-button-round {
+  /* background-color: #fff; */
+  opacity: 0.8;
+}
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+.remove-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+.remove-scrollbar {
+  scrollbar-width: none; /* Hide the scrollbar */
+}
+
+/* Optional: Ensure the div remains scrollable */
+.remove-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  overflow: auto; /* Allows content to scroll */
+}
