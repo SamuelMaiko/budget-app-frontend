@@ -28,7 +28,7 @@ const TransferToWallet = () => {
 
   return (
     <div className="w-full h-full">
-      <div className="w-[75%] mx-auto min-h-screen">
+      <div className="w-[88%] md:w-[75%] mx-auto min-h-screen">
         <div className="bg-primaryColor text-white py-[2rem]">
           <h1 className="text-center text-xl font-semibold ">Transfer funds</h1>
         </div>

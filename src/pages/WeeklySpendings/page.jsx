@@ -27,9 +27,11 @@ const WeeklySpendings = () => {
   return (
     <div className="w-full min-h-screen">
       <div className="w-[75%] mx-auto h-screen flex ">
-        <DisplayWeekSideBar />
+        <div className="">
+          <DisplayWeekSideBar />
+        </div>
         <div className="w-full h-full pl-[1rem] overflow-y-scroll remove-scrollbar">
-          <div className="bg-primaryColor text-white py-[2rem] mb-[1.3rem] sticky top-0">
+          <div className="bg-primaryColor text-white py-[2rem] mb-[1.3rem] sticky top-0 z-20">
             <h1 className="text-center text-xl font-semibold ">
               Weekly spendings
             </h1>

@@ -46,14 +46,21 @@ const WalletTransactions = () => {
   }, []);
 
   return (
-    <div className="bg-white shadow-lg min-h-[50vh] rounded-lg overflow-hidden">
-      {transactions &&
-        transactions.map((transaction) => {
-          return (
-            <TransactionCard key={transaction.id} transaction={transaction} />
-          );
-        })}
-    </div>
+    <>
+      {/* transactions div */}
+      <div className="bg-white shadow-lg min-h-[50vh] rounded-lg overflow-hidden pb-[7rem]">
+        {transactions &&
+          transactions.map((transaction) => {
+            return (
+              <TransactionCard key={transaction.id} transaction={transaction} />
+            );
+          })}
+      </div>
+      {/* no transactions found div */}
+      <div className="pb-5">
+        <p className="">No transactions are available for this week!</p>
+      </div>
+    </>
   );
 };
 

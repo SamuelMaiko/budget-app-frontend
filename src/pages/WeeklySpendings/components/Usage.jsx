@@ -2,9 +2,9 @@ import React from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 
 const Usage = ({ totalExpenses, usedCash }) => {
-  const percentage = !(usedCash / totalExpenses)
-    ? 0
-    : (usedCash / totalExpenses) * 100;
+  const percentage = Math.round(
+    !(usedCash / totalExpenses) ? 0 : (usedCash / totalExpenses) * 100
+  );
   return (
     <div className="flex items-center">
       <p className="text-lg font-semibold mr-2">Usage</p>

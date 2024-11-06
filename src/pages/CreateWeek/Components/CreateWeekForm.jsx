@@ -16,11 +16,13 @@ import instance from "../../../axios/instance";
 import { createDate } from "../../../formatters/createDate";
 import { addDaysToDate } from "../../../utils/AddDaysToDate";
 import { useNavigate } from "react-router-dom";
+import { useWeekContext } from "../../../context/WeekContext";
 
 const CreateWeekForm = () => {
   const [loading, setLoading] = useState(false);
   const [date, setDate] = useState(() => new Date());
   const navigate = useNavigate();
+  const { weeks, setWeeks } = useWeekContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,9 +34,13 @@ const CreateWeekForm = () => {
         start_date: createDate(date),
         end_date: addDaysToDate(createDate(date), 7),
       });
+      console.log(response.data);
+      // adding the new week to the list of weeks
+      setWeeks((currentWeeks) => [response.data, ...currentWeeks]);
       toast.success("week created successfully");
+      navigate(`/weeks/${response.data.id}`);
 
-      navigate(-1);
+      // navigate(-1);
     } catch (error) {
       if (error.response && error.response.status) {
         const status = error.response.status;

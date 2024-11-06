@@ -15,7 +15,7 @@ const WalletCard = ({ wallet }) => {
   return (
     // w-[30rem]
     <div
-      className={`w-full bg-[${wallet.color_theme}] h-[13rem] rounded-xl p-[1.7rem] relative shadow-md cursor-pointer
+      className={`w-full bg-[${wallet.color_theme}] h-[11rem] md:h-[13rem] rounded-xl p-[1.7rem] relative shadow-md cursor-pointer
        hover:scale-[1.05] transition-transform duration-300 text-white`}
       onClick={() => navigate(`/wallets/${wallet.id}`)}
     >

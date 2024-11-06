@@ -26,9 +26,6 @@ const WalletMiniCard = ({ wallet }) => {
           </div>
           <p className="capitalize font-medium">{wallet.name}</p>
         </div>
-        <button className="bg-primaryColor py-1 px-4 hover:opacity-[0.8] transition-opacity duration-300 text-white rounded-xl">
-          Select
-        </button>
       </div>
       {/* to appear on desktop and medium screens */}
       <div

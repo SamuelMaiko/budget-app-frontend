@@ -21,7 +21,7 @@ import AddItemModal from "../pages/ManageWeekItems/modals/AddItemModal";
 
 const AppRoutes = () => {
   return (
-    <div className="font-opensans transition-colors duration-300 bg-[#eeeeee]">
+    <div className="font-opensans transition-colors duration-300 bg-[#eeeeee] h-screen overflow-hidden">
       <NavBar />
       <div>
         <Routes>

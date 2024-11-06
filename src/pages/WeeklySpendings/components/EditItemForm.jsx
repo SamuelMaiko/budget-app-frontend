@@ -1,5 +1,5 @@
 import { Divider } from "keep-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useWeekContext } from "../../../context/WeekContext";
 import { X } from "lucide-react";
 import { toast } from "react-toastify";
@@ -16,13 +16,18 @@ const EditItemForm = () => {
     setWeekDetails,
   } = useWeekContext();
   const [loading, setLoading] = useState(false);
-  const [amount, setAmount] = useState(() =>
-    parseInt(itemToEdit.amount_allocated, 10)
-  );
+  const [amount, setAmount] = useState();
+  const amountRef = useRef(null);
+
+  useEffect(() => {
+    setAmount(itemToEdit.amount_allocated);
+    amountRef.current = itemToEdit.amount_allocated;
+  }, [itemToEdit]);
 
   const EditItem = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const prevAmount = amountRef.current;
 
     try {
       const response = await instance.put(
@@ -32,6 +37,10 @@ const EditItemForm = () => {
         }
       );
 
+      // console.log(response.data);
+      // console.log("previous", prevAmount);
+      // console.log("new", amount);
+
       toast.success("Item updated successfully");
 
       // updating the new amount in state
@@ -39,18 +48,30 @@ const EditItemForm = () => {
         return currentItems.map((currentItem) => {
           if (currentItem.id === itemToEdit.id) {
             return { ...currentItem, amount_allocated: parseInt(amount, 10) };
+          } else if (currentItem.name == "Other") {
+            return {
+              ...currentItem,
+              amount_allocated:
+                parseInt(currentItem.amount_allocated, 10) +
+                (parseInt(prevAmount, 10) - parseInt(amount, 10)),
+            };
           }
+
           return currentItem;
         });
       });
 
       // updating the current week details in state
+
       setWeekDetails((currentDetails) => {
+        const result = (
+          parseInt(currentDetails.total_expenses, 10) +
+          (parseInt(amount, 10) - itemToEdit.amount_allocated)
+        ).toFixed(2);
+
         return {
           ...currentDetails,
-          total_expenses:
-            parseInt(currentDetails.total_expenses, 10) +
-            (parseInt(amount, 10) - itemToEdit.amount_allocated),
+          total_expenses: result,
         };
       });
 

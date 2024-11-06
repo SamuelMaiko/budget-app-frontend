@@ -21,7 +21,7 @@ const NavBar = () => {
 
   return (
     <div
-      className={`h-[4.5rem] bg-gray-50 border-[1px] border-neutral-400 flex items-center 
+      className={`h-[4.5rem] md:bg-gray-50 md:border-[1px] border-neutral-400 flex items-center 
     ${
       pathname == "/login" || pathname == "/signup"
         ? " pl-[3rem]"
@@ -29,12 +29,12 @@ const NavBar = () => {
     } 
     `}
     >
-      <h1 className="text-3xl font-semibold">Budgetty</h1>
+      <h1 className="text-2xl md:text-3xl font-semibold">Budgetty</h1>
       {/* navbar links */}
       <ul
         className={`uppercase flex items-center gap-[2rem] text-lg
         ${pathname == "/login" || pathname == "/signup" ? "hidden" : ""} 
-        `}
+        hidden md:flex`}
       >
         <NavBarLink
           icon={<Wallet size={24} />}
@@ -59,7 +59,7 @@ const NavBar = () => {
         <h1 className="font-medium text-lg">
           Hello {username.charAt(0).toUpperCase() + username.slice(1)}!
         </h1>
-        <div className="bg-blue-400 size-[3rem] rounded-xl overflow-hidden">
+        <div className="bg-blue-400 size-[2.3rem] md:size-[3rem] rounded-xl overflow-hidden">
           <img src={prof} className="w-full h-full" alt="profile picture" />
         </div>
       </div>

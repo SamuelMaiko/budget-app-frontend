@@ -20,14 +20,9 @@ const StatementCard = ({ statement }) => {
         </div>
         <div className="pt-[1rem]">
           <h1 className="text-[16px] font-semibold">
-            {statement.item_involved}
-            {/* {statement.other_wallet.id == id
-              ? `Transfer ${statement.type == "Debit" ? "to" : "from"}  ` +
-                statement.wallet.name
-              : statement.other_wallet.name == null
-              ? "Deposit"
-              : `Transfer ${statement.type == "Debit" ? "to" : "from"}  ` +
-                statement.other_wallet.name} */}
+            {statement.item_involved === "Other"
+              ? `[EXTRA EXPENSES]`
+              : statement.item_involved}
           </h1>
           <p className="text-gray-400">
             {statement.description || "No description"}

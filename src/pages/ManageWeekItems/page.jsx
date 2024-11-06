@@ -26,8 +26,8 @@ const ManageWeekItems = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen">
-      <div className="w-[75%] mx-auto h-full">
+    <div className="w-full h-screen overflow-y-scroll scrollble">
+      <div className="w-[75%] mx-auto min-h-screen pb-[10rem] ">
         <div className="bg-primaryColor text-white py-[2rem]">
           <h1 className="text-center text-xl font-semibold ">Manage items</h1>
         </div>

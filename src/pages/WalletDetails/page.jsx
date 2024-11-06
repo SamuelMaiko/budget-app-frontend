@@ -16,15 +16,15 @@ const WalletDetails = () => {
   }, []);
 
   return (
-    <div className="w-full h-full">
-      <div className="w-[75%] mx-auto h-full">
+    <div className="w-full h-screen overflow-y-scroll md:scrollble remove-scrollbar">
+      <div className="w-[88%] md:w-[75%] mx-auto h-full">
         <div
-          className={`bg-[${WalletDetails.color_theme}] sticky top-0 text-white pb-[2rem]`}
+          className={`bg-[${WalletDetails.color_theme}]  top-0 text-white pb-[2rem]`}
         >
-          <h1 className="text-center text-xl font-semibold mb-[3.5rem]">
+          <h1 className="text-center text-xl font-semibold mb-[1rem] md:mb-[3.5rem]">
             My wallets
           </h1>
-          <h1 className="text-center text-2xl font-medium capitalize">
+          <h1 className="text-center text-[17px] md:text-2xl font-medium capitalize mb-[2rem] md:mb-0">
             {WalletDetails.name}
           </h1>
         </div>
@@ -38,7 +38,7 @@ const WalletDetails = () => {
           </div>
         </div>
 
-        <div className="flex gap-[2.1rem]">
+        <div className="flex md:gap-[2.1rem]">
           <ActionButtonCard
             onClick={() => navigate("transfer-funds")}
             icon={<ArrowRightLeft size={22} />}

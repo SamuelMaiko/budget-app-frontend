@@ -10,12 +10,7 @@ import { getCookie } from "../../../Cookies/Cookie";
 const AddItemForm = () => {
   const { setShowAddItemModal, setItems, itemToAdd } = useWeekContext();
   const [loading, setLoading] = useState(false);
-  const [amount, setAmount] = useState();
-
-  useEffect(() => {
-    // setItemToAdd(JSON.parse(getCookie("itemToAddToWeek")));
-    // console.log("Adding", JSON.parse(getCookie("itemToAddToWeek")));
-  }, []);
+  const [amount, setAmount] = useState("");
 
   const AddItem = async (e) => {
     e.preventDefault();
@@ -41,7 +36,7 @@ const AddItemForm = () => {
         });
       });
 
-      setAmount(null);
+      setAmount("");
       toast.success("Item added successfully");
       setShowAddItemModal(false);
     } catch (error) {

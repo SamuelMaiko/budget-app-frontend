@@ -16,7 +16,7 @@ const AddButton = ({ item }) => {
       onClick={() => {
         setItemToAdd(item);
         createNewCookie("itemWeek", JSON.stringify(id));
-        console.log(item);
+        // console.log(item);
         setShowAddItemModal(true);
       }}
       className={`flex items-center gap-2 text-green-600 hover:opacity-[0.7]

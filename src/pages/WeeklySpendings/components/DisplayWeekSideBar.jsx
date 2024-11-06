@@ -11,8 +11,8 @@ const DisplayWeekSideBar = () => {
   const { weeks, setWeeks } = useWeekContext();
 
   return (
-    <div className=" w-[11rem] h-full sticky top-0 border-r-[1px] border-gray-300 pr-4">
-      <div className="flex justify-between items-center mb-4 mt-2">
+    <div className=" w-[11rem] h-full overflow-y-scroll sticky top-0 border-r-[1px] border-gray-300 pr-4 scrollble">
+      <div className="flex justify-between items-center mb-4 sticky top-0 z-10 bg-[#eeeeee] py-2">
         <p className="text-gray-500 ">Weeks</p>
         <span
           onClick={() => navigate("/weeks/create")}

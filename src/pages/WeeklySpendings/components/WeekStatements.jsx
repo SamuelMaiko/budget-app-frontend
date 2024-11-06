@@ -57,11 +57,20 @@ const WeekStatements = () => {
           See all
         </button>
       </div>
-      <div className="bg-white shadow-lg min-h-[50vh] rounded-lg overflow-hidden">
+      {/* statements div */}
+      <div
+        className={`bg-white shadow-lg min-h-[50vh] rounded-lg overflow-hidden
+        ${statements.length == 0 ? "hidden" : ""}
+        `}
+      >
         {statements &&
           statements.map((statement) => {
             return <StatementCard key={statement.id} statement={statement} />;
           })}
+      </div>
+      {/* no statements found div */}
+      <div className="pb-5">
+        <p className="">No statements are available for this week!</p>
       </div>
     </div>
   );

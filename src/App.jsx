@@ -12,7 +12,7 @@ const App = () => {
     <WalletContext>
       <WeekContext>
         <BrowserRouter>
-          <ToastContainer position="bottom-left" />
+          <ToastContainer position="bottom-right" />
           <AppRoutes />
         </BrowserRouter>
       </WeekContext>
