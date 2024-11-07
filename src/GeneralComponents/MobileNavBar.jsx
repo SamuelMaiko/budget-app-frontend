@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MobileNavLink from "./MobileNavLink";
 import { useWeekContext } from "../context/WeekContext";
-import { useAppContext } from "../context/appContext";
+import { useAppContext } from "../context/AppContext";
 
 const MobileNavBar = () => {
   const { pathname } = useLocation();
