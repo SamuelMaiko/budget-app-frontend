@@ -24,7 +24,7 @@ const Login = () => {
       });
       createNewCookie("access_token", response.data.access);
       createNewCookie("refresh_token", response.data.refresh);
-      createNewCookie("username", response.data.user.username);
+      // createNewCookie("username", response.data.user.username);
       toast.success("Logged in successfully");
 
       navigate("/wallets");

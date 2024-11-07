@@ -6,17 +6,25 @@ import NavBarLink from "./NavBarLink";
 import { getCookie } from "../Cookies/Cookie";
 import { getWeeks } from "../pages/WeeklySpendings/api/getWeeks";
 import { useWeekContext } from "../context/WeekContext";
+import { getProfile } from "./getProfile";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [username, setUsername] = useState(() => getCookie("username"));
+  // const [username, setUsername] = useState(() => getCookie("username"));
   const { weeks, setWeeks } = useWeekContext();
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     if (pathname !== "/login" && pathname !== "/signup") {
       getWeeks().then((response) => {
         setWeeks(response);
+      });
+    }
+
+    if (pathname !== "/login" && pathname !== "/signup" && !profile) {
+      getProfile().then((response) => {
+        setProfile(response);
       });
     }
   }, [pathname]);
@@ -58,11 +66,15 @@ const NavBar = () => {
       ${pathname == "/login" || pathname == "/signup" ? "hidden" : ""} 
       `}
       >
-        <h1 className="font-medium text-lg">
-          Hello {username.charAt(0).toUpperCase() + username.slice(1)}!
+        <h1 className="font-medium text-lg capitalize">
+          Hello {profile && profile.user}!
         </h1>
         <div className="bg-blue-400 size-[2.3rem] md:size-[3rem] rounded-xl overflow-hidden">
-          <img src={prof} className="w-full h-full" alt="profile picture" />
+          <img
+            src={profile && profile.profile_picture}
+            className="w-full h-full"
+            alt="profile picture"
+          />
         </div>
       </div>
     </div>
