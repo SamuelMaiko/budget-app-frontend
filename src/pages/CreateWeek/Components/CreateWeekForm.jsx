@@ -14,7 +14,7 @@ import {
 import { toast } from "react-toastify";
 import instance from "../../../axios/instance";
 import { createDate } from "../../../formatters/createDate";
-import { addDaysToDate } from "../../../utils/AddDaysToDate";
+import { addDaysToDate } from "../../../utils/addDaysToDate";
 import { useNavigate } from "react-router-dom";
 import { useWeekContext } from "../../../context/WeekContext";
 
