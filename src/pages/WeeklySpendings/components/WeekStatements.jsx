@@ -47,7 +47,7 @@ const WeekStatements = () => {
   }, [id]);
 
   return (
-    <div className="pb-[5rem] ">
+    <div className="mb-[20rem] ">
       <div className="flex justify-between items-center mt-[3rem] mb-[1rem]">
         <h1 className="text-xl font-Montserrat font-semibold ">Statements</h1>
         <button
@@ -59,7 +59,7 @@ const WeekStatements = () => {
       </div>
       {/* statements div */}
       <div
-        className={`bg-white shadow-lg min-h-[50vh] rounded-lg overflow-hidden
+        className={`bg-white mb-[10rem] shadow-lg rounded-lg overflow-hidden
         ${statements.length == 0 ? "hidden" : ""}
         `}
       >
@@ -69,7 +69,11 @@ const WeekStatements = () => {
           })}
       </div>
       {/* no statements found div */}
-      <div className="pb-5">
+      <div
+        className={`pb-5 mb-[5rem] md:mb-0 ${
+          statements.length == 0 ? "" : "hidden"
+        }`}
+      >
         <p className="">No statements are available for this week!</p>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { Divider } from "keep-react";
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createNewCookie } from "../../../Cookies/Cookie";
-import { SquarePen } from "lucide-react";
+import { LogOut, SquarePen } from "lucide-react";
 import { useWeekContext } from "../../../context/WeekContext";
 
 const WeekItemCard = ({ item }) => {
@@ -12,18 +12,23 @@ const WeekItemCard = ({ item }) => {
 
   return (
     <>
-      <div className=" w-full flex items-center justify-between p-4 relative">
+      <div className=" w-full flex items-center justify-between p-3 md:p-4 relative">
         <div className="flex items-center gap-4 ">
-          <div className="rounded-full bg-[#007BFF] size-[3.1rem] uppercase text-white grid place-items-center text-2xl">
+          <div
+            className="rounded-full bg-[#007BFF] size-[2.7rem] md:size-[3.1rem] uppercase text-white
+           grid place-items-center md:text-2xl text-xl"
+          >
             {item.name.split("")[0]}
           </div>
           <div>
-            <h1 className="text-lg font-medium">{item.name}</h1>
-            <div className="flex gap-4">
+            <h1 className="text-[15px] md:text-lg font-medium capitalize">
+              {item.name}
+            </h1>
+            <div className="flex flex-col md:flex-row gap-4">
               {/* progress bar */}
-              <div className="w-[37rem] h-[1rem] bg-neutral-200 rounded-lg flex items-center ">
+              <div className="w-[12rem] md:w-[37rem] h-[0.7rem] md:h-[1rem] bg-neutral-200 rounded-lg flex items-center ">
                 <div
-                  className="h-[1rem] bg-primaryColor rounded-lg flex items-center pl-1 text-[15px] font-semibold whitespace-nowrap"
+                  className="h-[0.7rem] md:h-[1rem] bg-primaryColor rounded-lg flex items-center pl-1 text-[15px] font-semibold whitespace-nowrap"
                   style={{
                     width: `calc(${
                       Math.round(
@@ -60,7 +65,7 @@ const WeekItemCard = ({ item }) => {
             </div>
           </div>
         </div>
-        {/* withdraw button */}
+        {/* withdraw button for desktop */}
         <button
           onClick={() => {
             createNewCookie("itemToWithdrawFrom", item.name);
@@ -68,9 +73,21 @@ const WeekItemCard = ({ item }) => {
             navigate(`/week/${id}/item/${item.id}/withdraw`);
           }}
           className="bg-red-500 hover:opacity-[0.7] transition-opacity duration-300 text-white
-         rounded-lg py-1 px-2 text-sm "
+         rounded-lg py-1 px-2 text-sm hidden md:block "
         >
           withdraw
+        </button>
+        {/* withdraw button for mobile devices */}
+        <button
+          onClick={() => {
+            createNewCookie("itemToWithdrawFrom", item.name);
+            createNewCookie("itemRemainingAmount", item.remaining_amount);
+            navigate(`/week/${id}/item/${item.id}/withdraw`);
+          }}
+          className="bg-red-500 hover:opacity-[0.7] transition-opacity duration-300 text-white
+         rounded-full p-1 text-sm md:hidden block "
+        >
+          <LogOut size={17} className="" />
         </button>
         {/* edit button */}
         <SquarePen
@@ -80,7 +97,7 @@ const WeekItemCard = ({ item }) => {
             setShowEditItemModal(true);
           }}
           size={16}
-          className={`absolute text-black top-1 right-0 cursor-pointer hover:scale-[1.05] transition-transform duration-300
+          className={`absolute text-black top-2 right-2 md:right-0 cursor-pointer hover:scale-[1.05] transition-transform duration-300
             ${item.name == "Other" ? "hidden" : ""}
             `}
         />

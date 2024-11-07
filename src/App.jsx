@@ -6,16 +6,19 @@ import WalletContext from "./context/WalletContext";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import WeekContext from "./context/WeekContext";
+import AppContext from "./context/appContext";
 
 const App = () => {
   return (
     <WalletContext>
-      <WeekContext>
-        <BrowserRouter>
-          <ToastContainer position="bottom-right" />
-          <AppRoutes />
-        </BrowserRouter>
-      </WeekContext>
+      <AppContext>
+        <WeekContext>
+          <BrowserRouter>
+            <ToastContainer position="bottom-right" />
+            <AppRoutes />
+          </BrowserRouter>
+        </WeekContext>
+      </AppContext>
     </WalletContext>
     // LATER
     // "see all" pages (2)

@@ -13,6 +13,7 @@ const WeekContext = ({ children }) => {
   const [items, setItems] = useState([]);
   const [expenseItems, setExpenseItems] = useState([]);
   const [weekDetails, setWeekDetails] = useState({});
+  const [showWeekSidebar, setShowWeekSidebar] = useState(false);
 
   return (
     <createdWeekContext.Provider
@@ -33,6 +34,8 @@ const WeekContext = ({ children }) => {
         setExpenseItems,
         weekDetails,
         setWeekDetails,
+        showWeekSidebar,
+        setShowWeekSidebar,
       }}
     >
       {children}

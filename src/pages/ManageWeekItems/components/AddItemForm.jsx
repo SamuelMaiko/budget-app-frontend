@@ -71,9 +71,10 @@ const AddItemForm = () => {
 
   return (
     <form
+      onClick={(e) => e.stopPropagation()}
       onSubmit={AddItem}
-      className="absolute w-[28rem] px-2 left-[50%] translate-x-[-50%] top-[30%] rounded-lg
-     bg-white "
+      className="absolute w-[91%] md:w-[28rem] px-2 left-[50%] translate-x-[-50%] top-[30%] rounded-lg
+     bg-white pb-[1rem]"
     >
       <div className="text-[1.3rem]  px-4 flex items-center justify-between py-3 ">
         <p className="text-xl font-semibold">{itemToAdd && itemToAdd.name}</p>

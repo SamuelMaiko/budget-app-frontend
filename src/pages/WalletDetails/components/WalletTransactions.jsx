@@ -48,7 +48,7 @@ const WalletTransactions = () => {
   return (
     <>
       {/* transactions div */}
-      <div className="bg-white shadow-lg min-h-[50vh] rounded-lg overflow-hidden pb-[7rem]">
+      <div className="bg-white shadow-lg mb-[10rem] rounded-lg overflow-hidden ">
         {transactions &&
           transactions.map((transaction) => {
             return (

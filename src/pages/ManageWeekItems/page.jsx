@@ -26,12 +26,12 @@ const ManageWeekItems = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen overflow-y-scroll scrollble">
-      <div className="w-[75%] mx-auto min-h-screen pb-[10rem] ">
-        <div className="bg-primaryColor text-white py-[2rem]">
+    <div className="w-full h-screen overflow-y-scroll remove-scrollbar md:scrollble">
+      <div className="w-[88%] md:w-[75%] mx-auto min-h-screen pb-[10rem] ">
+        <div className="bg-primaryColor text-white py-[1.7rem] md:py-[2rem]">
           <h1 className="text-center text-xl font-semibold ">Manage items</h1>
         </div>
-        <h1 className="uppercase text-xl text-center font-medium mt-[1rem]">
+        <h1 className="uppercase text-lg md:text-xl text-center font-medium mt-[1rem]">
           {weekName}
         </h1>
         <h1 className="text-2xl font-Montserrat font-semibold mt-[2rem] mb-[1rem]">
@@ -63,7 +63,7 @@ const ManageWeekItems = () => {
         <button
           onClick={() => navigate(-1)}
           className="bg-green-600 text-white py-2 px-7 rounded-3xl hover:opacity-[0.8] transition-opacity
-        duration-300 text-[16px] mt-[4rem] "
+        duration-300 text-[16px] mt-[4rem] mb-[2rem] "
         >
           Done
         </button>

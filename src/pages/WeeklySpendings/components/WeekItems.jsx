@@ -5,14 +5,14 @@ import RemainingCashCard from "./RemainingCashCard";
 const WeekItems = ({ expenseItems }) => {
   return (
     <>
-      <div className=" bg-white px-5 rounded-lg shadow-lg ">
+      <div className=" bg-white md:px-5 rounded-lg shadow-lg overflow-hidden">
         {expenseItems &&
           expenseItems.map((item) => {
             if (item.name !== "Other")
               return <WeekItemCard key={item.id} item={item} />;
           })}
       </div>
-      <div className=" bg-white px-5 rounded-lg shadow-lg mt-5">
+      <div className=" bg-white px-5 rounded-lg shadow-lg mt-5 overflow-hidden">
         {expenseItems &&
           expenseItems.map((item) => {
             if (item.name === "Other")

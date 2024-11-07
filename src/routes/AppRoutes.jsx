@@ -18,6 +18,7 @@ import SignUp from "../pages/SignUp/page";
 import ManageWeekItems from "../pages/ManageWeekItems/page";
 import EditItemModal from "../pages/WeeklySpendings/modals/EditItemModal";
 import AddItemModal from "../pages/ManageWeekItems/modals/AddItemModal";
+import MobileNavBar from "../GeneralComponents/MobileNavBar";
 
 const AppRoutes = () => {
   return (
@@ -52,6 +53,7 @@ const AppRoutes = () => {
         <div className="">
           <Outlet />
         </div>
+        <MobileNavBar />
       </div>
 
       <DeleteWalletModal />

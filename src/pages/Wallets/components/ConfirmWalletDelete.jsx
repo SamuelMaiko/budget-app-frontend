@@ -66,7 +66,7 @@ const ConfirmWalletDelete = () => {
 
   return (
     <div
-      className="absolute w-[23rem]  px-2 left-[50%] translate-x-[-50%] top-[30%] rounded-lg
+      className="absolute w-[91%] md:w-[23rem] px-2 left-[50%] translate-x-[-50%] top-[30%] rounded-lg
      bg-white "
     >
       <div className="text-[1.3rem]  px-4 flex items-center justify-between py-3 ">

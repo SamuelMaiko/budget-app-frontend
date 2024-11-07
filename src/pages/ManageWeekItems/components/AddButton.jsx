@@ -20,7 +20,7 @@ const AddButton = ({ item }) => {
         setShowAddItemModal(true);
       }}
       className={`flex items-center gap-2 text-green-600 hover:opacity-[0.7]
-            ${!item.in_week ? "cursor-pointer" : "cursor-default "}
+            ${!item.in_week ? "cursor-pointer" : "cursor-default "} 
             `}
       disabled={item.in_week}
     >

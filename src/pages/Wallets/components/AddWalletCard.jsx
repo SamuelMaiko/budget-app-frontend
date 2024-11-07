@@ -13,8 +13,8 @@ const AddWalletCard = () => {
   return (
     // w-[30rem]
     <div
-      className="w-full bg-white h-[13rem] rounded-xl p-[1.7rem] relative 
-      cursor-pointer hover:scale-[1.05] transition-transform duration-300
+      className="w-full bg-white h-[11rem] md:h-[13rem] rounded-xl p-[1.7rem] relative mb-[2rem] md:mb-0
+      cursor-pointer hover:scale-[0.97] md:hover:scale-[1.05] transition-transform duration-300
       border-[2px] border-primaryColor border-dashed grid place-items-center
       "
       onClick={() => navigate(`/wallets/create`)}

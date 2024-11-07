@@ -3,7 +3,7 @@ import React from "react";
 const MiniDashboardCard = ({ icon, title, cash }) => {
   return (
     <div
-      className="bg-white w-[20rem] h-[5rem] flex gap-2 border-b-[1px] border-r-[1px] 
+      className="bg-white w-full md:w-[20rem] h-[5rem] flex gap-2 border-b-[1px] border-r-[1px] 
 border-gray-500 shadow-sm rounded-lg overflow-hidden "
     >
       <div className="bg-[rgba(0,123,255,0.5)] text-white h-full w-[5rem] grid place-items-center">

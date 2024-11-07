@@ -14,10 +14,12 @@ const NavBar = () => {
   const { weeks, setWeeks } = useWeekContext();
 
   useEffect(() => {
-    getWeeks().then((response) => {
-      setWeeks(response);
-    });
-  }, []);
+    if (pathname !== "/login" && pathname !== "/signup") {
+      getWeeks().then((response) => {
+        setWeeks(response);
+      });
+    }
+  }, [pathname]);
 
   return (
     <div

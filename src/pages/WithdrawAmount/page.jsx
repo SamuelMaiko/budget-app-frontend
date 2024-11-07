@@ -10,8 +10,9 @@ const WithdrawAmount = () => {
   const [loading, setLoading] = useState();
   const [WalletDetails, setWalletDetails] = useState({});
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = React.useState();
+  const [amount, setAmount] = React.useState("");
   const [invalid, setInvalid] = useState(false);
+  const [insufficientFunds, setInsufficientFunds] = useState(false);
   const { item_id } = useParams();
 
   // useEffect(() => {
@@ -19,19 +20,17 @@ const WithdrawAmount = () => {
   // }, []);
 
   useEffect(() => {
-    // alert(typeof amount);
-    if (
-      amount === undefined ||
-      amount === "" ||
-      amount == 0 ||
-      amount > parseInt(getCookie("itemRemainingAmount"), 10)
-    ) {
+    if (amount === undefined || amount === "" || amount == 0) {
       setInvalid(true);
     } else {
       setInvalid(false);
     }
 
-    // alert(typeof parseInt(getCookie("itemRemainingAmount"), 10));
+    if (amount > parseInt(getCookie("itemRemainingAmount"), 10)) {
+      setInsufficientFunds(true);
+    } else {
+      setInsufficientFunds(false);
+    }
   }, [amount]);
 
   // function to deposit the money
@@ -53,7 +52,6 @@ const WithdrawAmount = () => {
           description: description,
         }
       );
-      console.log(response.data);
       toast.success("Funds withdrawn successfully");
 
       navigate(-1);
@@ -89,11 +87,11 @@ const WithdrawAmount = () => {
 
   return (
     <div className="w-full min-h-screen">
-      <div className="w-[75%] mx-auto h-full">
+      <div className="w-[88%] md:-[75%] mx-auto h-full">
         <div className="bg-primaryColor text-white py-[2rem]">
           <h1 className="text-center text-xl font-semibold ">Withdraw funds</h1>
         </div>
-        <h1 className="uppercase text-3xl text-center font-medium mt-[1rem]">
+        <h1 className="uppercase text-xl md:text-3xl text-center font-medium mt-[1rem]">
           {getCookie("itemToWithdrawFrom")}
         </h1>
         <form onSubmit={handleSubmit} className="">
@@ -112,13 +110,13 @@ const WithdrawAmount = () => {
           </div>
           <p
             className={`text-center uppercase mt-1 ${
-              invalid ? "text-red-500 font-semibold" : "text-gray-500"
+              insufficientFunds ? "text-red-500 font-semibold" : "text-gray-500"
             }  text-sm`}
           >
             Balance: KES {getCookie("itemRemainingAmount")}{" "}
           </p>
-          <div className="mt-[8rem] w-[50%] mx-auto flex justify-start">
-            <div className=" w-[30rem]">
+          <div className="mt-[5rem] md:mt-[8rem] w-full md:w-[50%] mx-auto flex justify-start">
+            <div className="w-full md:w-[30rem]">
               <label className="text-base text-black dark:text-darkMode-gray">
                 Brief description
               </label>
@@ -136,9 +134,9 @@ const WithdrawAmount = () => {
           </div>
           <div className="flex justify-center mt-[2rem]">
             <button
-              className={` text-white py-2 px-4 rounded-3xl hover:opacity-[0.8] transition-opacity
-            duration-300 w-[50%] text-lg ${
-              invalid ? "bg-gray-400" : "bg-black"
+              className={` text-white py-3 md:py-2 px-4 rounded-[2rem] md:rounded-3xl hover:opacity-[0.8] transition-opacity
+            duration-300 w-full md:w-[50%] text-xl md:text-lg ${
+              invalid || insufficientFunds ? "bg-gray-400" : "bg-black"
             }`}
               disabled={invalid || loading}
             >

@@ -4,7 +4,6 @@ import instance from "../../../axios/instance";
 export const getItems = async (id) => {
   try {
     const response = await instance.get(`/expense-items/?week_id=${id}`);
-    console.log(response.data);
     return response.data;
   } catch (error) {
     if (error.response && error.response.status) {

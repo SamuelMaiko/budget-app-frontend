@@ -18,10 +18,12 @@ const RemainingCashCard = ({ item }) => {
             E
           </div>
           <div>
-            <h1 className="text-lg font-medium">Extra funds (unallocated)</h1>
+            <h1 className="text-lg font-medium mb-2">
+              Extra funds (unallocated)
+            </h1>
             <div className="flex gap-4">
               {/* progress bar */}
-              <div className="w-[37rem]  rounded-lg flex items-center ">
+              <div className="w-[37rem]  rounded-lg flex flex-col justify-center ">
                 <div>
                   <FiguresDisplay
                     title={"Total extra funds"}
@@ -46,42 +48,27 @@ const RemainingCashCard = ({ item }) => {
                     }
                   />
                 </div>
-                {/* <div
-                  className="h-[1rem] bg-primaryColor rounded-lg flex items-center pl-1 text-[15px] font-semibold whitespace-nowrap"
-                  style={{
-                    width: `calc(${
-                      Math.round(
-                        (parseInt(item.amount_used, 10) /
-                          parseInt(item.amount_allocated, 10)) *
-                          100
-                      ) || 0
-                    } % )`,
+
+                {/* withdraw button */}
+                <button
+                  onClick={() => {
+                    createNewCookie("itemToWithdrawFrom", item.name);
+                    createNewCookie(
+                      "itemRemainingAmount",
+                      item.remaining_amount
+                    );
+                    navigate(`/week/${id}/item/${item.id}/withdraw`);
                   }}
+                  className="bg-blue-500 hover:opacity-[0.7] transition-opacity duration-300 text-white
+                    rounded-lg py-1 px-2 text-sm w-fit mt-2 "
                 >
-                  used{" "}
-                  {Math.round(
-                    (parseInt(item.amount_used, 10) /
-                      parseInt(item.amount_allocated, 10)) *
-                      100
-                  ) || 0}
-                  %
-                </div> */}
+                  withdraw
+                </button>
               </div>
             </div>
           </div>
         </div>
-        {/* withdraw button */}
-        <button
-          onClick={() => {
-            createNewCookie("itemToWithdrawFrom", item.name);
-            createNewCookie("itemRemainingAmount", item.remaining_amount);
-            navigate(`/week/${id}/item/${item.id}/withdraw`);
-          }}
-          className="bg-blue-500 hover:opacity-[0.7] transition-opacity duration-300 text-white
-         rounded-lg py-1 px-2 text-sm "
-        >
-          withdraw
-        </button>
+
         {/* edit button */}
         <SquarePen
           onClick={(e) => {
@@ -104,7 +91,7 @@ export default RemainingCashCard;
 
 const FiguresDisplay = ({ title, value }) => {
   return (
-    <p className="flex items-center justify-between w-[20rem]">
+    <p className="flex items-center justify-between w-[15rem] md:w-[20rem]">
       <span>{title}:</span>
       <span>{value}</span>
     </p>

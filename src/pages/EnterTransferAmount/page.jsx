@@ -105,7 +105,7 @@ const EnterTransferAmount = () => {
 
   return (
     <div className="w-full min-h-screen">
-      <div className="w-[75%] mx-auto h-full">
+      <div className="w-[88%] md:w-[75%] mx-auto h-full">
         <div className="bg-primaryColor text-white py-[2rem]">
           <h1 className="text-center text-xl font-semibold ">
             Transfer amount
@@ -137,8 +137,8 @@ const EnterTransferAmount = () => {
           </p>
           <div className="flex justify-center mt-[5rem]">
             <button
-              className={` text-white py-2 px-4 rounded-3xl  transition-opacity
-            duration-300 w-[50%] text-lg ${
+              className={` text-white py-3 md:py-2 px-4 rounded-[2rem] md:rounded-3xl  transition-opacity
+            duration-300 w-full md:w-[50%] text-xl md:text-lg ${
               invalid
                 ? "cursor-not-allowed bg-gray-400"
                 : " bg-black hover:opacity-[0.8]"

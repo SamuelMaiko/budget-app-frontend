@@ -55,6 +55,7 @@ const CreateItemForm = ({ setShowCreateForm, setItems }) => {
 
   return (
     <form className="pl-3" onSubmit={handleSubmit}>
+      <h1 className="text-xl font-medium">Create item</h1>
       <div className="mt-1 mb-5">
         <label className="text-base text-black dark:text-darkMode-gray">
           Name*
@@ -62,7 +63,7 @@ const CreateItemForm = ({ setShowCreateForm, setItems }) => {
         <input
           placeholder="name of item"
           type="text"
-          className="flex mt-2 h-10 w-[50%] rounded-md border border-gray-300 bg-transparent px-3
+          className="flex mt-2 h-10 w-full md:w-[50%] rounded-md border border-gray-300 bg-transparent px-3
          py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1
           focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
           name="name"
@@ -74,6 +75,7 @@ const CreateItemForm = ({ setShowCreateForm, setItems }) => {
         <button
           className="bg-primaryColor text-white py-[6px] px-3 rounded-3xl hover:opacity-[0.8] transition-opacity
         duration-300 text-[16px] w-fit"
+          type="submit"
         >
           Create
         </button>
@@ -81,6 +83,7 @@ const CreateItemForm = ({ setShowCreateForm, setItems }) => {
           onClick={() => setShowCreateForm(false)}
           className="bg-white text-black py-[6px] px-3 rounded-3xl hover:opacity-[0.8] transition-opacity
         duration-300 text-[16px] w-fit flex items-center gap-1 text-sm border-[1px] border-gray-300"
+          type="button"
         >
           <X size={17} />
           Close

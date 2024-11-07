@@ -6,9 +6,9 @@ const Usage = ({ totalExpenses, usedCash }) => {
     !(usedCash / totalExpenses) ? 0 : (usedCash / totalExpenses) * 100
   );
   return (
-    <div className="flex items-center">
+    <div className="flex items-center mt-[2rem] md:mt-0">
       <p className="text-lg font-semibold mr-2">Usage</p>
-      <div className="h-[10rem] md:h-[5rem]">
+      <div className="h-[5rem] md:h-[5rem]">
         <CircularProgressbar
           value={isNaN(percentage) ? 100 : percentage}
           // value={100}
