@@ -14,7 +14,17 @@ const App = () => {
       <AppContext>
         <WeekContext>
           <BrowserRouter>
-            <ToastContainer position="top-center" />
+            <ToastContainer
+              position="top-center"
+              autoClose={2000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss={false}
+              draggable={false}
+              pauseOnHover={true}
+            />
             <AppRoutes />
           </BrowserRouter>
         </WeekContext>
