@@ -42,9 +42,9 @@ const NavBar = () => {
       <h1 className="text-2xl md:text-3xl font-semibold">Budgetty</h1>
       {/* navbar links */}
       <ul
-        className={`uppercase flex items-center gap-[2rem] text-lg
-        ${pathname == "/login" || pathname == "/signup" ? "hidden" : ""} 
-        hidden md:flex`}
+        className={`uppercase flex items-center gap-[2rem] text-lg md:flex
+        ${pathname == "/login" || pathname == "/signup" ? "md:hidden" : ""} 
+        hidden `}
       >
         <NavBarLink
           icon={<Wallet size={24} />}
