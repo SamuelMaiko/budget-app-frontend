@@ -6,7 +6,7 @@ import WalletContext from "./context/WalletContext";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import WeekContext from "./context/WeekContext";
-import AppContext from "./context/appContext";
+import AppContext from "./context/AppContext";
 
 const App = () => {
   return (
