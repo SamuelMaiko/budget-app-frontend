@@ -34,7 +34,9 @@ const WalletDetails = () => {
           </h1>
           <div className="flex items-center justify-center gap-2 text-xl">
             <span className="uppercase font-medium">kes</span>
-            <span className="font-Montserrat">{WalletDetails.balance}</span>
+            <span className="font-Montserrat">
+              {WalletDetails && WalletDetails.balance}
+            </span>
           </div>
         </div>
 
