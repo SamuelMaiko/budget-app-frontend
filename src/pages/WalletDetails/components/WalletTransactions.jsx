@@ -58,7 +58,7 @@ const WalletTransactions = () => {
       </div>
       {/* no transactions found div */}
       <div className={`pb-5 ${transactions.length == 0 ? "" : "hidden"}`}>
-        <p className="">No transactions are available for this week!</p>
+        <p className="">No transactions are available!</p>
       </div>
     </>
   );

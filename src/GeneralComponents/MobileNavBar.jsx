@@ -1,16 +1,32 @@
 // import { PieChart, Wallet } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MobileNavLink from "./MobileNavLink";
 import { useWeekContext } from "../context/WeekContext";
 import { useAppContext } from "../context/AppContext";
 import { ChartPieSlice, Wallet } from "phosphor-react";
+import { getWeeks } from "../pages/WeeklySpendings/api/getWeeks";
+import { getProfile } from "./getProfile";
 
 const MobileNavBar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { weeks, setWeeks } = useWeekContext();
   const { activePage, setActivePage } = useAppContext();
+
+  useEffect(() => {
+    if (pathname !== "/login" && pathname !== "/signup") {
+      getWeeks().then((response) => {
+        setWeeks(response);
+      });
+    }
+
+    // if (pathname !== "/login" && pathname !== "/signup" && !profile) {
+    //   getProfile().then((response) => {
+    //     setProfile(response);
+    //   });
+    // }
+  }, [pathname]);
 
   return (
     <div
