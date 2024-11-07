@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen w-full font-poppins">
+    <div className="h-screen w-full font-poppins overflow-y-scroll">
       <div className="flex justify-between">
         <Section className="w-[61%] h-screen hidden lg:flex text-primaryColor pl-16">
           <div className="  w-[35rem] ">
@@ -74,13 +74,15 @@ const Login = () => {
             </p>
           </div>
         </Section>
-        <section className="flex-1 flex justify-center">
-          <form className=" w-[73%] mt-20" onSubmit={handleSubmit}>
-            <h1 className="font-medium text-4xl mt-5">Login</h1>
+        <section className="flex-1 flex justify-center ">
+          <form className=" w-[73%] mt-5 md:mt-20" onSubmit={handleSubmit}>
+            <h1 className="font-medium text-[24px] md:text-4xl mt-5">Login</h1>
             <div className="mt-10">
-              <label className="font-medium text-[1.1rem]">Username</label>
+              <label className="font-medium text-[14px] md:text-[1.1rem]">
+                Username
+              </label>
               <input
-                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none"
+                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none text-[14px] md:text-base"
                 placeholder="Enter username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)} // Update email state
@@ -88,9 +90,11 @@ const Login = () => {
               />
             </div>
             <div className="mt-10">
-              <label className="font-medium text-[1.1rem]">Password</label>
+              <label className="font-medium text-[14px] md:text-[1.1rem]">
+                Password
+              </label>
               <input
-                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none"
+                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none text-[14px] md:text-base"
                 placeholder="Enter password"
                 type="password"
                 value={password}
@@ -101,25 +105,27 @@ const Login = () => {
             <button
               type="submit"
               // className="mt-5 mb-5 bg-[#28A745] hover:bg-[#339966] py-3 px-7 rounded-3xl text-white text-sm uppercase"
-              className="mt-5 mb-5 bg-primaryColor hover:opacity-[0.7] py-3 px-7 rounded-3xl text-white
-               text-sm uppercase transition-opacity duration-300"
+              className="mt-8 md:mt-5 mb-5 bg-primaryColor hover:opacity-[0.7] py-3 px-7 rounded-3xl text-white
+               transition-opacity duration-300 
+               uppercase text-[13px] md:text-[16px] font-semibold flex items-center justify-center 
+               "
               disabled={loading}
             >
-              {loading ? "loading ..." : "Login"}
+              {loading ? "logging in ..." : "Login"}
             </button>
-            <p className="mb-8 text-blue-600 hover:text-blue-900 text-md text-left cursor-pointer">
+            <p
+              onClick={() => alert("Coming soon")}
+              className="mb-[3.2rem] md:mb-8 text-blue-600 hover:text-blue-900 text-[13px] md:text-md text-left cursor-pointer"
+            >
               Forgotten your password?
             </p>
 
-            <p className="mb-2 text-left">Don&apos;t have an account?</p>
-            <NavLink to="/signup">
-              <button
-                type="button"
-                className="border-[1px] border-black rounded-3xl py-3 px-7 uppercase text-sm"
-              >
-                Sign Up
-              </button>
-            </NavLink>
+            <p className="mb-2 text-left text-[13px] md:text-base">
+              <span>Don&apos;t have an account?</span>
+              <NavLink to="/signup">
+                <span className="ml-1 text-blue-600">Signup</span>
+              </NavLink>
+            </p>
           </form>
         </section>
       </div>

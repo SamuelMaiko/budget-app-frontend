@@ -16,7 +16,8 @@ html {
 .scrollble {
   overflow: auto;
   scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #f39c12 transparent; /* For Firefox */
+  /* scrollbar-color: #f39c12 transparent; For Firefox */
+  scrollbar-color: #007bff transparent; /* For Firefox */
 }
 
 .scrollble::-webkit-scrollbar {
@@ -28,7 +29,7 @@ html {
 }
 
 .scrollble::-webkit-scrollbar-thumb {
-  background-color: #f39c12; /* Color of the scrollbar */
+  background-color: #007bff; /* Color of the scrollbar */
   border-radius: 10px; /* Roundness of the scrollbar */
   border: 2px solid transparent; /* Padding around scrollbar */
   background-clip: content-box;

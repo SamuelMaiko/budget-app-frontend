@@ -17,11 +17,13 @@ const WeekCard = ({ week }) => {
       className={`w-full border-[1px] border-gray-300 font-semibold py-2 rounded-lg 
     text-black hover:opacity-[0.7] cursor-pointer transition-colors duration-300 mb-3 relative
     ${
-      id == week.id ? "bg-primaryColor" : "bg-white"
+      id == week.id ? "bg-gray-300" : "bg-white"
     } transition-opacity duration-300
     `}
     >
-      <p className="text-center text-[14px]">{week.name}</p>
+      <p className="text-center text-[13px] md:text-[14px] font-normal">
+        {week.name}
+      </p>
       <p
         className={`${
           week.is_last ? "" : "hidden"

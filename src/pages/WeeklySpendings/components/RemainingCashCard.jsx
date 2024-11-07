@@ -13,12 +13,12 @@ const RemainingCashCard = ({ item }) => {
   return (
     <>
       <div className=" w-full flex items-center justify-between p-4 relative">
-        <div className="flex items-center gap-4 ">
-          <div className="rounded-full bg-[#007BFF] size-[3.1rem] uppercase text-white grid place-items-center text-2xl hidden">
+        <div className="flex items-center gap-4 text-gray-500">
+          <div className="rounded-full bg-[#007BFF] size-[3.1rem] uppercase text-white place-items-center text-2xl hidden">
             E
           </div>
           <div>
-            <h1 className="text-lg font-medium mb-2">
+            <h1 className="text-[13px] md:text-lg font-medium mb-2 uppercase md:normal-case font-semibold">
               Extra funds (unallocated)
             </h1>
             <div className="flex gap-4">
@@ -60,7 +60,7 @@ const RemainingCashCard = ({ item }) => {
                     navigate(`/week/${id}/item/${item.id}/withdraw`);
                   }}
                   className="bg-blue-500 hover:opacity-[0.7] transition-opacity duration-300 text-white
-                    rounded-lg py-1 px-2 text-sm w-fit mt-2 "
+                    rounded-lg py-1 px-2 md:text-sm w-fit mt-2 uppercase text-[13px] md:normal-case"
                 >
                   withdraw
                 </button>
@@ -92,8 +92,13 @@ export default RemainingCashCard;
 const FiguresDisplay = ({ title, value }) => {
   return (
     <p className="flex items-center justify-between w-[15rem] md:w-[20rem]">
-      <span>{title}:</span>
-      <span>{value}</span>
+      <span className="text-[13px] md:text-base">{title}:</span>
+      <span className="font-light w-[5.5rem] text-[13px] text-base">
+        <span className={`${title == "Usage percentage" ? "hidden" : ""}`}>
+          Ksh.
+        </span>{" "}
+        {value}
+      </span>
     </p>
   );
 };

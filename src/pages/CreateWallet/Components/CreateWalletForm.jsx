@@ -59,17 +59,17 @@ const CreateWalletForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="pt-5 w-full md:w-[68%] pb-14 bg-white shadow-md rounded-lg p-5"
+      className="pt-5 w-full md:w-[68%] pb-8 md:pb-14 bg-white shadow-md rounded-lg p-5"
     >
       <div className="mt-1 mb-5">
-        <label className="text-base text-black dark:text-darkMode-gray">
+        <label className="text-[13px] md:text-base text-black dark:text-darkMode-gray">
           Name*
         </label>
         <input
           placeholder="name of wallet"
           type="text"
           className="flex mt-2 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3
-         py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1
+         py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 text-[13px] md:text-base
           focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
           name="name"
           value={name}
@@ -78,7 +78,7 @@ const CreateWalletForm = () => {
         />
       </div>
       <div className="my-8 ">
-        <label className="text-base text-black dark:text-darkMode-gray ">
+        <label className="text-[13px] md:text-base text-black dark:text-darkMode-gray ">
           Theme
         </label>
 
@@ -96,7 +96,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="one"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#1E90FF] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#1E90FF] rounded-full"
             ></label>
           </div>
           {/* second */}
@@ -112,7 +112,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="two"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#3EB489] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#3EB489] rounded-full"
             ></label>
           </div>
           {/* third */}
@@ -128,7 +128,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="three"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#FF4500] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#FF4500] rounded-full"
             ></label>
           </div> */}
           {/* fourth */}
@@ -144,7 +144,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="four"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#FF4500] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#FF4500] rounded-full"
             ></label>
           </div>
           {/* fifth */}
@@ -160,7 +160,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="five"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#9370DB] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#9370DB] rounded-full"
             ></label>
           </div>
           {/* sixth */}
@@ -176,7 +176,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="six"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#FFD700] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#FFD700] rounded-full"
             ></label>
           </div>
           {/* seventh */}
@@ -192,7 +192,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="seven"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#36454F] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#36454F] rounded-full"
             ></label>
           </div>
           {/* eight */}
@@ -208,7 +208,7 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="eight"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#FFB6C1] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#FFB6C1] rounded-full"
             ></label>
           </div>
           {/* nineth */}
@@ -224,16 +224,16 @@ const CreateWalletForm = () => {
             />
             <label
               htmlFor="nine"
-              className="size-[2.3rem] md:size-[2.7rem] bg-[#228B22] rounded-full"
+              className="size-[1.9rem] md:size-[2.7rem] bg-[#228B22] rounded-full"
             ></label>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center mt-[5rem]">
+      <div className="flex justify-center mt-[3rem] md:mt-[5rem]">
         <button
-          className="bg-primaryColor text-white py-2 px-4 rounded-3xl hover:opacity-[0.8] transition-opacity
-            duration-300 w-full text-lg"
+          className="bg-primaryColor text-white py-3 md:py-2 px-4 rounded-3xl hover:opacity-[0.8] transition-opacity
+            duration-300 w-full uppercase md:normal-case text-[13px] md:text-[16px] font-semibold flex items-center justify-center"
           disabled={loading}
         >
           {loading ? "Creating..." : "Create"}

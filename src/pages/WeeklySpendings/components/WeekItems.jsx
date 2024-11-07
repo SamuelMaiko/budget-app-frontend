@@ -12,7 +12,7 @@ const WeekItems = ({ expenseItems }) => {
               return <WeekItemCard key={item.id} item={item} />;
           })}
       </div>
-      <div className=" bg-white px-5 rounded-lg shadow-lg mt-5 overflow-hidden">
+      <div className=" bg-white px-5 rounded-lg shadow-lg mt-[4rem] md:mt-5 overflow-hidden">
         {expenseItems &&
           expenseItems.map((item) => {
             if (item.name === "Other")

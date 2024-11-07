@@ -64,13 +64,16 @@ const RemoveButton = ({ item, setItems }) => {
   return (
     <button
       onClick={RemoveItem}
-      className={`flex items-center gap-2 text-red-600 hover:opacity-[0.7]
+      className={`flex items-center gap-1 md:gap-2 text-red-600 hover:opacity-[0.7]
           ${item.in_week ? "cursor-pointer" : "cursor-default "}
           `}
       disabled={!item.in_week}
     >
-      <Minus size={16} />
-      <p className="text-sm">Remove</p>
+      <>
+        <Minus size={13} className="block md:hidden" />{" "}
+        <Minus size={16} className="md:block hidden" />
+      </>
+      <p className="text-[12px] md:text-sm">Remove</p>
     </button>
   );
 };

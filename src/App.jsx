@@ -14,7 +14,7 @@ const App = () => {
       <AppContext>
         <WeekContext>
           <BrowserRouter>
-            <ToastContainer position="bottom-right" />
+            <ToastContainer position="top-center" />
             <AppRoutes />
           </BrowserRouter>
         </WeekContext>

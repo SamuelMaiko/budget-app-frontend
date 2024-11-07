@@ -14,7 +14,8 @@ const config = {
         Montserrat: ["Montserrat", "serif"],
       },
       colors: {
-        primaryColor: "#F39C12", // Adding a custom blue color
+        // primaryColor: "#F39C12", // Adding a custom blue color
+        primaryColor: "#007BFF", // Adding a custom blue color
         customBlue: "#1E40AF", // Adding a custom blue color
         customGreen: {
           light: "#6EE7B7", // Custom green with light and dark shades

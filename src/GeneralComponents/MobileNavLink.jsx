@@ -12,7 +12,9 @@ const MobileNavLink = ({ icon, name, onClick, className }) => {
       )}
     >
       <span>{icon}</span>
-      <span className="">{name}</span>
+      <span className="text-[12px] font-normal transition-colors duration-300">
+        {name}
+      </span>
     </li>
   );
 };

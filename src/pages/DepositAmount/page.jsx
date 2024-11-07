@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getWalletDetails } from "../EditWallet/api/walletdetails";
 import { toast } from "react-toastify";
@@ -11,9 +11,13 @@ const DepositAmount = () => {
   const [amount, setAmount] = React.useState();
   const [invalid, setInvalid] = useState(false);
   const { id } = useParams();
+  const amountinputRef = useRef(null);
 
   useEffect(() => {
     getWalletDetails(id).then((response) => setWalletDetails(response));
+
+    // focusing on the amount input on page visit
+    amountinputRef.current.focus();
   }, []);
 
   useEffect(() => {
@@ -77,32 +81,38 @@ const DepositAmount = () => {
   return (
     <div className="w-full min-h-screen">
       <div className="w-[88%] md:w-[75%] mx-auto h-full">
-        <div className="bg-primaryColor text-white py-[2rem]">
-          <h1 className="text-center text-xl font-semibold ">Deposit funds</h1>
+        <div className="md:bg-primaryColor text-black md:text-white py-[0.65rem] md:py-[2rem]   top-0 z-20">
+          <h1 className="text-center text-lg md:text-xl uppercase md:normal-case font-light md:font-semibold ">
+            Deposit funds
+          </h1>
         </div>
-        <h1 className="uppercase text-xl text-center font-medium mt-[1rem]">
+        <h1 className="uppercase text-[16px] md:text-3xl text-center font-medium mt-[1rem]">
           {WalletDetails.name}
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="flex items-baseline mx-auto w-fit mt-[3rem] text-3xl ">
-            <label htmlFor="amount " className="  text-gray-400">
-              KES
+            <label
+              htmlFor="amount "
+              className="text-gray-400 font-extralight md:font-normal"
+            >
+              KSH.
             </label>
             <input
+              ref={amountinputRef}
               type="number"
-              placeholder="0"
               id="amount"
               value={amount}
+              placeholder="0"
               onChange={(e) => setAmount(e.target.value)}
-              className=" bg-transparent border-b-[2px] border-b-black outline-none pt-4 pb-0 w-[7rem] ml-4 "
+              className=" bg-transparent outline-none pt-4 pb-0 w-[7rem] ml-4 font-bold"
             />
           </div>
-          <div className="flex justify-center mt-[5rem]">
+          <div className="flex justify-center mt-[4rem] md:mt-[5rem]">
             <button
               className={` text-white py-3 md:py-2 px-4 rounded-[2rem] md:rounded-3xl hover:opacity-[0.8] transition-opacity
-            duration-300 w-full md:w-[50%] text-xl md:text-lg ${
-              invalid ? "bg-gray-400" : "bg-black"
-            }`}
+            duration-300 w-full md:w-[50%] 
+            uppercase md:normal-case text-[13px] md:text-[16px] font-semibold flex items-center justify-center
+            ${invalid ? "bg-gray-400" : "bg-black"}`}
               disabled={invalid || loading}
             >
               {loading ? "Depositing ..." : "Deposit"}

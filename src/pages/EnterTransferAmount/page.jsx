@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { getWalletDetails } from "../EditWallet/api/walletdetails";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,7 +13,9 @@ const EnterTransferAmount = () => {
   const [amount, setAmount] = React.useState();
   const [invalid, setInvalid] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [insufficientFunds, setInsufficientFunds] = useState(false);
   const navigate = useNavigate();
+  const amountinputRef = useRef(null);
 
   useEffect(() => {
     // getting the wallet details
@@ -34,6 +36,9 @@ const EnterTransferAmount = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+
+    // focusing on the amount input on page visit
+    amountinputRef.current.focus();
   }, []);
 
   useEffect(() => {
@@ -47,6 +52,12 @@ const EnterTransferAmount = () => {
       setInvalid(true);
     } else {
       setInvalid(false);
+    }
+
+    if (parseInt(value, 10) > parseInt(balance, 10)) {
+      setInsufficientFunds(true);
+    } else {
+      setInsufficientFunds(false);
     }
   }, [amount]);
 
@@ -106,44 +117,53 @@ const EnterTransferAmount = () => {
   return (
     <div className="w-full min-h-screen">
       <div className="w-[88%] md:w-[75%] mx-auto h-full">
-        <div className="bg-primaryColor text-white py-[2rem]">
-          <h1 className="text-center text-xl font-semibold ">
+        <div className="md:bg-primaryColor text-black md:text-white py-[0.65rem] md:py-[2rem]   top-0 z-20">
+          <h1 className="text-center text-lg md:text-xl uppercase md:normal-case font-light md:font-semibold ">
             Transfer amount
           </h1>
         </div>
-        <h1 className="uppercase text-xl text-center font-medium mt-[1rem]">
+        <h1 className="uppercase text-[13px] md:text-3xl text-center font-medium mt-[1rem]">
           {name} to {otherWalletName}
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="flex items-baseline mx-auto w-fit mt-[3rem] text-3xl">
-            <label htmlFor="amount " className="  text-gray-400">
-              KES
+            <label
+              htmlFor="amount "
+              className="text-gray-400 font-extralight md:font-normal"
+            >
+              KSH.
             </label>
             <input
-              placeholder="0"
+              ref={amountinputRef}
               type="number"
               id="amount"
               value={amount}
+              placeholder="0"
               onChange={(e) => setAmount(e.target.value)}
-              className=" bg-transparent border-b-[2px] border-b-black outline-none pt-4 pb-0 w-[7rem] ml-4 text-gray-600"
+              className=" bg-transparent outline-none pt-4 pb-0 w-[7rem] ml-4 font-bold"
+              // className=" bg-transparent border-b-[2px] border-b-black outline-none pt-4 pb-0 w-[7rem] ml-4 font-bold"
             />
           </div>
           <p
             className={`text-center uppercase mt-1 ${
-              invalid ? "text-red-500 font-semibold" : "text-gray-500"
-            }  text-sm`}
+              insufficientFunds
+                ? "text-orange-500 font-semibold"
+                : "text-gray-500"
+            } text-[13px] md:text-sm`}
           >
-            Balance: KES {balance}{" "}
+            Balance: Ksh. {balance}{" "}
           </p>
-          <div className="flex justify-center mt-[5rem]">
+          <div className="flex justify-center mt-[3rem] md:mt-[5rem]">
             <button
               className={` text-white py-3 md:py-2 px-4 rounded-[2rem] md:rounded-3xl  transition-opacity
-            duration-300 w-full md:w-[50%] text-xl md:text-lg ${
-              invalid
+            duration-300 w-full md:w-[50%] 
+            uppercase md:normal-case text-[13px] md:text-[16px] font-semibold flex items-center justify-center
+            ${
+              invalid || insufficientFunds
                 ? "cursor-not-allowed bg-gray-400"
                 : " bg-black hover:opacity-[0.8]"
             }`}
-              disabled={invalid || loading}
+              disabled={invalid || loading || insufficientFunds}
             >
               {loading ? "Transferring..." : "Transfer"}
             </button>

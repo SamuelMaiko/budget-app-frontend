@@ -24,7 +24,9 @@ const WalletMiniCard = ({ wallet }) => {
           >
             {wallet.name[0]}
           </div>
-          <p className="capitalize font-medium">{wallet.name}</p>
+          <p className="md:capitalize font-medium text-[13px] md:text-base uppercase text-gray-600 ">
+            {wallet.name}
+          </p>
         </div>
       </div>
       {/* to appear on desktop and medium screens */}

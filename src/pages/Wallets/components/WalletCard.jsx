@@ -20,7 +20,9 @@ const WalletCard = ({ wallet }) => {
       onClick={() => navigate(`/wallets/${wallet.id}`)}
     >
       <div className="flex justify-between">
-        <h1 className="capitalize text-lg font-medium">{wallet.name}</h1>
+        <h1 className="uppercase md:capitalize text-[15px] md:text-lg font-medium">
+          {wallet.name}
+        </h1>
         <button
           className="rounded-full hover:bg-neutral-500 p-[0.2rem]"
           onClick={(e) => {
@@ -31,11 +33,13 @@ const WalletCard = ({ wallet }) => {
           <Ellipsis size={22} />
         </button>
       </div>
-      <div className="flex items-center gap-2">
-        <span className="uppercase font-medium">kes</span>
-        <span className="font-Montserrat">{wallet.balance}</span>
+
+      <div className="flex items-center gap-2 text-[13px] md:text-xl font-normal md:font-medium">
+        <span className="uppercase ">ksh. </span>
+        <span className="">{wallet.balance}</span>
       </div>
-      <p className="text-sm absolute bottom-4">
+
+      <p className="text-[12px] md:text-sm absolute bottom-4">
         created on {formatDate(wallet.created_at)}
       </p>
 

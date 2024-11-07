@@ -7,7 +7,9 @@ const ItemCard = ({ item, setItems }) => {
   return (
     <div
       className={`flex justify-between py-5 px-2 border-b-[1px] border-gray-300
-    ${item.name.toLowerCase() == "other" ? "hidden" : ""} text-[16px] 
+    ${
+      item.name.toLowerCase() == "other" ? "hidden" : ""
+    } text-[13px] md:text-[16px] capitalize text-gray-600 
     `}
     >
       <p>{item.name}</p>

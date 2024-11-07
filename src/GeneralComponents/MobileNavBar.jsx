@@ -1,9 +1,10 @@
-import { PieChart, Wallet } from "lucide-react";
+// import { PieChart, Wallet } from "lucide-react";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MobileNavLink from "./MobileNavLink";
 import { useWeekContext } from "../context/WeekContext";
 import { useAppContext } from "../context/AppContext";
+import { ChartPieSlice, Wallet } from "phosphor-react";
 
 const MobileNavBar = () => {
   const { pathname } = useLocation();
@@ -14,12 +15,27 @@ const MobileNavBar = () => {
   return (
     <div
       className={`min-h-[4rem] w-full bg-white text-neutral-400 fixed -bottom-0 md:hidden flex items-start
-     justify-between px-10 py-2 ${
+     justify-between px-12 py-2 ${
        pathname == "/login" || pathname == "/signup" ? "hidden" : ""
      }`}
     >
       <MobileNavLink
-        icon={<Wallet size={24} />}
+        icon={
+          <>
+            <>
+              <Wallet
+                size={25}
+                weight="fill"
+                className={`${activePage === "wallets" ? "" : "hidden"}`}
+              />
+              <Wallet
+                size={25}
+                // weight="fill"
+                className={`${activePage === "wallets" ? "hidden" : ""}`}
+              />
+            </>
+          </>
+        }
         name="wallets"
         onClick={() => {
           setActivePage("wallets");
@@ -28,7 +44,20 @@ const MobileNavBar = () => {
         className={`${activePage === "wallets" ? "text-primaryColor" : ""}`}
       />
       <MobileNavLink
-        icon={<PieChart size={24} />}
+        icon={
+          <>
+            <ChartPieSlice
+              size={25}
+              weight="fill"
+              className={`${activePage === "weekly-spendings" ? "" : "hidden"}`}
+            />
+            <ChartPieSlice
+              size={25}
+              // weight="fill"
+              className={`${activePage === "weekly-spendings" ? "hidden" : ""}`}
+            />
+          </>
+        }
         name="weekly spendings"
         onClick={() => {
           setActivePage("weekly-spendings");

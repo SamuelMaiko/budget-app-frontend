@@ -21,14 +21,15 @@ const WeekItemCard = ({ item }) => {
             {item.name.split("")[0]}
           </div>
           <div>
-            <h1 className="text-[15px] md:text-lg font-medium capitalize">
+            <h1 className="text-[12px] md:text-[15px] md:text-lg md:font-medium font-semibold text-gray-600 md:text-black uppercase md:capitalize">
               {item.name}
             </h1>
             <div className="flex flex-col md:flex-row gap-4">
               {/* progress bar */}
-              <div className="w-[12rem] md:w-[37rem] h-[0.7rem] md:h-[1rem] bg-neutral-200 rounded-lg flex items-center ">
+              <div className="w-[12rem] md:w-[37rem] h-[0.7rem] md:h-[1rem] bg-neutral-200 rounded-lg flex items-center mt-1">
                 <div
-                  className="h-[0.7rem] md:h-[1rem] bg-primaryColor rounded-lg flex items-center pl-1 text-[15px] font-semibold whitespace-nowrap"
+                  className="h-[0.7rem] md:h-[1rem] bg-primaryColor rounded-lg flex items-center pl-1 text-[11px] md:text-[15px]
+                   font-semibold whitespace-nowrap text-white"
                   style={{
                     width: `calc(${
                       Math.round(
@@ -49,7 +50,7 @@ const WeekItemCard = ({ item }) => {
                 </div>
               </div>
               {/* right section */}
-              <div className="text-sm flex items-center">
+              <div className="text-[12px] md:text-sm flex items-center">
                 <h1 className="font-medium">
                   {parseInt(item.amount_used, 10)}/
                   {parseInt(item.amount_allocated, 10)}
@@ -87,7 +88,7 @@ const WeekItemCard = ({ item }) => {
           className="bg-red-500 hover:opacity-[0.7] transition-opacity duration-300 text-white
          rounded-full p-1 text-sm md:hidden block "
         >
-          <LogOut size={17} className="" />
+          <LogOut size={14} className="" />
         </button>
         {/* edit button */}
         <SquarePen
@@ -96,9 +97,20 @@ const WeekItemCard = ({ item }) => {
             setItemToEdit(item);
             setShowEditItemModal(true);
           }}
-          size={16}
-          className={`absolute text-black top-2 right-2 md:right-0 cursor-pointer hover:scale-[1.05] transition-transform duration-300
+          size={12}
+          className={`absolute text-black top-2 right-2 md:right-0 cursor-pointer hover:scale-[1.05] transition-transform duration-300 md:hidden
             ${item.name == "Other" ? "hidden" : ""}
+            `}
+        />
+        <SquarePen
+          onClick={(e) => {
+            e.stopPropagation();
+            setItemToEdit(item);
+            setShowEditItemModal(true);
+          }}
+          size={16}
+          className={`absolute text-black top-2 right-2 md:right-0 cursor-pointer hover:scale-[1.05] transition-transform duration-300 hidden md:block
+            ${item.name == "Other" ? "hidden" : ""} 
             `}
         />
       </div>

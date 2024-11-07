@@ -19,14 +19,24 @@ const AddButton = ({ item }) => {
         // console.log(item);
         setShowAddItemModal(true);
       }}
-      className={`flex items-center gap-2 text-green-600 hover:opacity-[0.7]
+      className={`flex items-center gap-1 md:gap-2 text-green-600 hover:opacity-[0.7]
             ${!item.in_week ? "cursor-pointer" : "cursor-default "} 
             `}
       disabled={item.in_week}
     >
-      {item.in_week ? <BadgeCheck size={16} /> : <Plus size={16} />}
+      {item.in_week ? (
+        <>
+          <BadgeCheck size={13} className="block md:hidden" />{" "}
+          <BadgeCheck size={16} className="md:block hidden" />
+        </>
+      ) : (
+        <>
+          <Plus size={13} className="block md:hidden" />{" "}
+          <Plus size={16} className="md:block hidden" />
+        </>
+      )}
 
-      <p className="text-sm">{item.in_week ? "Added" : "Add"}</p>
+      <p className="text-[12px] md:text-sm">{item.in_week ? "Added" : "Add"}</p>
     </button>
   );
 };

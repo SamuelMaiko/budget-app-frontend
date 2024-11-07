@@ -49,10 +49,12 @@ const WeekStatements = () => {
   return (
     <div className="mb-[20rem] ">
       <div className="flex justify-between items-center mt-[3rem] mb-[1rem]">
-        <h1 className="text-xl font-Montserrat font-semibold ">Statements</h1>
+        <h1 className="text-[13px] uppercase md:normal-case text-gray-600 md:text-xl font-medium md:font-semibold ">
+          Statements
+        </h1>
         <button
           onClick={() => alert("Coming soon!")}
-          className="text-primaryColor py-1 px-4 hover:bg-[#FFF4E0]"
+          className="text-primaryColor py-1 px-4 hover:bg-[#FFF4E0] text-[13px] md:text-base uppercase md:normal-case font-medium"
         >
           See all
         </button>
@@ -74,7 +76,9 @@ const WeekStatements = () => {
           statements.length == 0 ? "" : "hidden"
         }`}
       >
-        <p className="">No statements are available for this week!</p>
+        <p className="text-[14px] text-gray-600 md:text-xl ">
+          No statements are available for this week!
+        </p>
       </div>
     </div>
   );

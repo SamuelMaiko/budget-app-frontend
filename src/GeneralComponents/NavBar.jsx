@@ -7,6 +7,7 @@ import { getCookie } from "../Cookies/Cookie";
 import { getWeeks } from "../pages/WeeklySpendings/api/getWeeks";
 import { useWeekContext } from "../context/WeekContext";
 import { getProfile } from "./getProfile";
+import { useAppContext } from "../context/AppContext";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const NavBar = () => {
   // const [username, setUsername] = useState(() => getCookie("username"));
   const { weeks, setWeeks } = useWeekContext();
   const [profile, setProfile] = useState(null);
+  const { activePage, setActivePage } = useAppContext;
 
   useEffect(() => {
     if (pathname !== "/login" && pathname !== "/signup") {
@@ -49,15 +51,21 @@ const NavBar = () => {
         <NavBarLink
           icon={<Wallet size={24} />}
           name="wallets"
-          onClick={() => navigate("/wallets")}
-          className={`${pathname === "/wallets" ? "text-primaryColor" : ""}`}
+          onClick={() => {
+            setActivePage("wallets");
+            navigate("/wallets");
+          }}
+          className={`${activePage === "wallets" ? "text-primaryColor" : ""}`}
         />
         <NavBarLink
           icon={<PieChart size={24} />}
           name="weekly spendings"
-          onClick={() => navigate(`/weeks/${weeks[0].id}`)}
+          onClick={() => {
+            setActivePage("weekly-spendings");
+            navigate(`/weeks/${weeks[0].id}`);
+          }}
           className={`${
-            pathname === "/weekly-spendings" ? "text-primaryColor" : ""
+            activePage === "weekly-spendings" ? "text-primaryColor" : ""
           }`}
         />
       </ul>
@@ -66,10 +74,11 @@ const NavBar = () => {
       ${pathname == "/login" || pathname == "/signup" ? "hidden" : ""} 
       `}
       >
-        <h1 className="font-medium text-lg capitalize">
-          Hello {profile && profile.user}!
+        <h1 className="font-medium text-sm md:text-lg uppercase ">
+          <span className="font-light capitalize">Hello</span>{" "}
+          {profile && profile.user}!
         </h1>
-        <div className="bg-blue-400 size-[2.3rem] md:size-[3rem] rounded-xl overflow-hidden">
+        <div className="bg-blue-400 size-[2.3rem] md:size-[3rem] rounded-full overflow-hidden">
           <img
             src={profile && profile.profile_picture}
             className="w-full h-full"

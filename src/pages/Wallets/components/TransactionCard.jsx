@@ -10,8 +10,8 @@ const TransactionCard = ({ transaction }) => {
     <div className="flex justify-between border-b-[1px] border-gray-200 h-[5rem]">
       <div className="flex gap-3 ">
         <div
-          className={`uppercase bg-primaryColor text-white px-1 md:px-0 md:w-[3rem] grid place-items-center
-             md:text-[14px] text-[12px] font-medium font-Montserrat
+          className={`uppercase bg-blue-400 text-white px-1 md:px-0 md:w-[3rem]
+             grid place-items-center md:text-[14px] text-[11px] font-normal md:font-medium 
           
           `}
         >
@@ -20,7 +20,7 @@ const TransactionCard = ({ transaction }) => {
           <p>{customDateForStatements(transaction.created_at)[2]}</p>
         </div>
         <div className="pt-[1rem]">
-          <h1 className="text-sm md:text-[16px] font-semibold">
+          <h1 className="text-[13px] md:text-[16px] text-gray-500 font-semibold">
             {transaction.other_wallet.id == id
               ? `Transfer ${transaction.type == "Debit" ? "to" : "from"}  ` +
                 transaction.wallet.name
@@ -29,7 +29,7 @@ const TransactionCard = ({ transaction }) => {
               : `Transfer ${transaction.type == "Debit" ? "to" : "from"}  ` +
                 transaction.other_wallet.name}
           </h1>
-          <p className="text-gray-400 text-sm md:text-base">
+          <p className="text-gray-400 text-[12px] md:text-sm ">
             {transaction.description || "No description"}
           </p>
         </div>
@@ -39,14 +39,14 @@ const TransactionCard = ({ transaction }) => {
           <span
             className={`${
               transaction.type == "Debit" ? "text-red-500" : "text-green-500"
-            } font-semibold `}
+            } font-semibold text-[13px] md:text-[16px]`}
           >
-            {transaction.type == "Debit" ? "-" : "+"}
+            {transaction.type == "Debit" ? "- " : "+ "}
+            <span className="text-xs md:text-base">KSH. </span>
             {transaction.amount}
           </span>{" "}
-          <span className="text-xs md:text-base">KES</span>
         </h1>
-        <h1 className="text-xs md:text-sm">
+        <h1 className="text-xs text-gray-500 md:text-sm">
           {getTwelveHrClock(transaction.created_at)}
         </h1>
       </div>

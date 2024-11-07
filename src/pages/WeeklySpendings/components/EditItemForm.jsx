@@ -114,28 +114,33 @@ const EditItemForm = () => {
      bg-white pb-[1rem]"
     >
       <div className="text-[1.3rem]  px-4 flex items-center justify-between py-3 ">
-        <p className="text-xl font-semibold">Edit {itemToEdit.name}</p>
+        <p className="text-[15px] md:text-xl font-semibold">
+          Edit {itemToEdit.name}
+        </p>
         {/* close button */}
         <button
           type="button"
           onClick={() => setShowEditItemModal(false)}
           className="rounded-full hover:bg-neutral-200 dark:hover:bg-gray-600 p-2"
         >
-          <X size={24} />
+          <>
+            <X size={18} className="block md:hidden" />{" "}
+            <X size={24} className="md:block hidden" />
+          </>
         </button>
       </div>
       <Divider className="dark:hidden" color="primary" />
       <Divider className="hidden dark:block" color="secondary" />
       {/* central section*/}
       <div className="mt-1 mb-5 px-4">
-        <label className="text-base text-black dark:text-darkMode-gray">
+        <label className="text-[13px] md:text-base text-black dark:text-darkMode-gray">
           Amount*
         </label>
         <input
           placeholder="amount allocated"
           type="number"
           className="flex mt-2 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3
-         py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1
+         py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 text-[13px] md:text-base
           focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
           name="name"
           value={amount}
@@ -148,8 +153,10 @@ const EditItemForm = () => {
         <div className="flex items-center gap-2 w-full">
           <button
             onClick={() => {}}
-            className={` bg-green-500 hover:bg-green-600
-              py-1 px-3 rounded-2xl font-medium text-white transition-background duration-300  w-full`}
+            className={` bg-green-600 hover:opacity-[0.7]
+              py-2 md:py-1 px-3 rounded-3xl md:rounded-2xl text-white transition-opacity duration-300  w-full
+              uppercase md:normal-case text-[13px] md:text-[16px] font-semibold
+              `}
             disabled={loading}
             type="submit"
           >

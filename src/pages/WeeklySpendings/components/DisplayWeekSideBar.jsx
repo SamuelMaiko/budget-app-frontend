@@ -15,8 +15,8 @@ const DisplayWeekSideBar = () => {
       className=" w-[11rem] h-[100vh] md:h-full overflow-y-scroll bg-white md:bg-transparent
      md:sticky top-0 border-r-[1px] border-gray-300 pl-4 pr-4 md:pl-0 scrollble"
     >
-      <div className="flex justify-between items-center mb-4 sticky top-0 z-10 bg-[#eeeeee] py-2">
-        <p className="text-gray-500 ">Weeks</p>
+      <div className="flex justify-between items-center mb-4 sticky top-0 z-10 md:bg-[#eeeeee] py-2">
+        <p className="text-gray-500 uppercase md:normal-case  ">Weeks</p>
         <span
           onClick={() => navigate("/weeks/create")}
           className="border-[1px] border-gray-400 cursor-pointer rounded-md hover:bg-gray-300

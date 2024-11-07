@@ -75,10 +75,10 @@ const CreateWeekForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="pt-5 w-[58%] pb-14 bg-white p-5 rounded-lg shadow-md"
+      className="pt-5 w-full md:w-[58%] pb-14 bg-white p-5 rounded-lg shadow-md"
     >
       <div className="mb-8">
-        <label className="text-base text-black dark:text-darkMode-gray">
+        <label className="text-[13px] md:text-base text-black dark:text-darkMode-gray">
           Start on*
         </label>
         <div className="mt-1 flex flex-row gap-10 ">
@@ -117,14 +117,16 @@ const CreateWeekForm = () => {
         </div>
       </div>
 
-      <p className="text-red-600">
+      <p className="text-red-600 text-[13px] md:text-base">
         Week will end after 7 days ({addDaysToDate(createDate(date), 7)})
       </p>
 
       <div className="flex justify-center mt-[3rem]">
         <button
-          className="bg-blue-600 text-white py-2 px-4 rounded-3xl hover:opacity-[0.8] transition-opacity
-            duration-300 w-full text-lg"
+          className="bg-blue-600 text-white py-3 md:py-2 px-4 rounded-3xl hover:opacity-[0.8] transition-opacity
+            duration-300 w-full
+            uppercase md:normal-case text-[13px] md:text-[16px] font-semibold flex items-center justify-center
+            "
         >
           Create
         </button>

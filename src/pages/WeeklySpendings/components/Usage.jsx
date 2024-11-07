@@ -7,8 +7,10 @@ const Usage = ({ totalExpenses, usedCash }) => {
   );
   return (
     <div className="flex items-center mt-[2rem] md:mt-0">
-      <p className="text-lg font-semibold mr-2">Usage</p>
-      <div className="h-[5rem] md:h-[5rem]">
+      <p className="text-[13px] md:text-lg font-semibold text-gray-600 mr-4 md:mr-2">
+        Usage
+      </p>
+      <div className="h-[4rem] md:h-[5rem]">
         <CircularProgressbar
           value={isNaN(percentage) ? 100 : percentage}
           // value={100}

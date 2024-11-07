@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getWeekDetails } from "../WeeklySpendings/api/getWeekDetails";
 import { toast } from "react-toastify";
@@ -14,10 +14,12 @@ const WithdrawAmount = () => {
   const [invalid, setInvalid] = useState(false);
   const [insufficientFunds, setInsufficientFunds] = useState(false);
   const { item_id } = useParams();
+  const amountinputRef = useRef(null);
 
-  // useEffect(() => {
-  //   getWeekDetails(id).then((response) => setWalletDetails(response));
-  // }, []);
+  useEffect(() => {
+    // focusing on the amount input on page visit
+    amountinputRef.current.focus();
+  }, []);
 
   useEffect(() => {
     if (amount === undefined || amount === "" || amount == 0) {
@@ -88,43 +90,52 @@ const WithdrawAmount = () => {
   return (
     <div className="w-full min-h-screen">
       <div className="w-[88%] md:-[75%] mx-auto h-full">
-        <div className="bg-primaryColor text-white py-[2rem]">
-          <h1 className="text-center text-xl font-semibold ">Withdraw funds</h1>
+        <div className="md:bg-primaryColor text-black md:text-white py-[0.65rem] md:py-[2rem]   top-0 z-20">
+          <h1 className="text-center text-lg md:text-xl uppercase md:normal-case font-light md:font-semibold ">
+            Withdraw funds
+          </h1>
         </div>
-        <h1 className="uppercase text-xl md:text-3xl text-center font-medium mt-[1rem]">
+        <h1 className="uppercase text-[16px] md:text-3xl text-center font-medium mt-[1rem]">
           {getCookie("itemToWithdrawFrom")}
         </h1>
         <form onSubmit={handleSubmit} className="">
-          <div className="flex items-baseline justify-center  w-[50%] mx-auto mt-[3rem] text-3xl ">
-            <label htmlFor="amount " className="  text-gray-400">
-              KES
+          <div className="flex items-baseline justify-center  w-[50%] mx-auto mt-[3rem] text-[26px] md:text-3xl ">
+            <label
+              htmlFor="amount "
+              className="text-gray-400 font-extralight md:font-normal"
+            >
+              KSH.
             </label>
             <input
+              ref={amountinputRef}
               type="number"
               id="amount"
               value={amount}
               placeholder="0"
               onChange={(e) => setAmount(e.target.value)}
-              className=" bg-transparent border-b-[2px] border-b-black outline-none pt-4 pb-0 w-[7rem] ml-4 "
+              className=" bg-transparent outline-none pt-4 pb-0 w-[7rem] ml-4 font-bold"
+              // className=" bg-transparent border-b-[2px] border-b-black outline-none pt-4 pb-0 w-[7rem] ml-4 font-bold"
             />
           </div>
           <p
             className={`text-center uppercase mt-1 ${
-              insufficientFunds ? "text-red-500 font-semibold" : "text-gray-500"
-            }  text-sm`}
+              insufficientFunds
+                ? "text-orange-500 font-semibold"
+                : "text-gray-500"
+            }  text-[13px] md:text-sm`}
           >
-            Balance: KES {getCookie("itemRemainingAmount")}{" "}
+            Balance: Ksh. {getCookie("itemRemainingAmount")}{" "}
           </p>
           <div className="mt-[5rem] md:mt-[8rem] w-full md:w-[50%] mx-auto flex justify-start">
             <div className="w-full md:w-[30rem]">
-              <label className="text-base text-black dark:text-darkMode-gray">
+              <label className="text-[13px] md:text-base text-black dark:text-darkMode-gray">
                 Brief description
               </label>
               <input
                 placeholder="optional description"
                 type="text"
                 className="flex mt-2 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3
-         py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1
+         py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 text-[13px] md:text-base
           focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 name="name"
                 value={description}
@@ -135,9 +146,9 @@ const WithdrawAmount = () => {
           <div className="flex justify-center mt-[2rem]">
             <button
               className={` text-white py-3 md:py-2 px-4 rounded-[2rem] md:rounded-3xl hover:opacity-[0.8] transition-opacity
-            duration-300 w-full md:w-[50%] text-xl md:text-lg ${
-              invalid || insufficientFunds ? "bg-gray-400" : "bg-black"
-            }`}
+            duration-300 w-full md:w-[50%] 
+            uppercase md:normal-case text-[13px] md:text-[16px] font-semibold flex items-center justify-center
+            ${invalid || insufficientFunds ? "bg-gray-400" : "bg-black"}`}
               disabled={invalid || loading}
             >
               Withdraw

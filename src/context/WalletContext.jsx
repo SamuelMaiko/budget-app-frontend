@@ -8,6 +8,8 @@ const WalletContext = ({ children }) => {
   const [currentWalletTheme, setCurrentWalletTheme] = useState("#F39C12");
   const [wallets, setWallets] = useState([]);
   const [walletToDelete, setWalletToDelete] = useState({});
+  // set in the useEffect of the edit wallet form, also used in the edit page
+  const [name, setName] = useState("");
 
   return (
     <createdWalletContext.Provider
@@ -20,6 +22,8 @@ const WalletContext = ({ children }) => {
         setWallets,
         walletToDelete,
         setWalletToDelete,
+        name,
+        setName,
       }}
     >
       {children}

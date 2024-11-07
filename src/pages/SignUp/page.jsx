@@ -81,21 +81,27 @@ const SignUp = () => {
         </Section>
         <section className="flex-1 flex justify-center">
           <form className=" w-[73%] mt-0" onSubmit={handleSubmit}>
-            <h1 className="font-medium text-4xl mt-7">Sign Up</h1>
+            <h1 className="font-medium text-[24px] md:text-4xl mt-7">
+              Sign Up
+            </h1>
             <div className="mt-5">
-              <label className="font-medium text-[1.1rem]">Username</label>
+              <label className="font-medium text-[14px] md:text-[1.1rem]">
+                Username
+              </label>
               <input
-                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none"
-                placeholder="Enter name"
+                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none text-[14px] md:text-base "
+                placeholder="Enter username"
                 value={name}
                 onChange={(e) => setName(e.target.value)} // Update name state
                 required
               />
             </div>
             <div className="mt-5">
-              <label className="font-medium text-[1.1rem]">Email</label>
+              <label className="font-medium text-[14px] md:text-[1.1rem]">
+                Email
+              </label>
               <input
-                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none"
+                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none text-[14px] md:text-base"
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)} // Update email state
@@ -103,9 +109,11 @@ const SignUp = () => {
               />
             </div>
             <div className="mt-5">
-              <label className="font-medium text-[1.1rem]">Password</label>
+              <label className="font-medium text-[14px] md:text-[1.1rem]">
+                Password
+              </label>
               <input
-                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none"
+                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none text-[14px] md:text-base"
                 placeholder="Enter password"
                 type="password"
                 value={password}
@@ -114,11 +122,11 @@ const SignUp = () => {
               />
             </div>
             <div className="mt-5">
-              <label className="font-medium text-[1.1rem]">
+              <label className="font-medium text-[14px] md:text-[1.1rem]">
                 Confirm Password
               </label>
               <input
-                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none"
+                className="bg-[#e8f0fe] h-[3rem] w-full border-b-[1px] border-gray-400 pl-3 outline-none text-[14px] md:text-base"
                 placeholder="Confirm password"
                 type="password"
                 value={confirmPassword}
@@ -129,21 +137,20 @@ const SignUp = () => {
             <button
               type="submit"
               // className="mt-8 mb-5 bg-[#28A745] hover:bg-[#339966] py-3 px-7 rounded-3xl text-white text-sm uppercase"
-              className="mt-8 mb-5 bg-primaryColor hover:opacity-[0.7] py-3 px-7 rounded-3xl text-white
-               text-sm uppercase transition-opacity duration-300"
+              className="mt-8 md:mt-5 mb-[3.5rem] md:mb-5 bg-primaryColor hover:opacity-[0.7] py-3 px-7 rounded-3xl text-white
+                transition-opacity duration-300
+               uppercase text-[13px] md:text-[16px] font-semibold flex items-center justify-center
+               "
               disabled={loading}
             >
-              {loading ? "loading ..." : "Sign Up"}
+              {loading ? "signing up ..." : "Sign Up"}
             </button>
-            <p className="mb-2 text-left">Already have an account?</p>
-            <NavLink to="/login">
-              <button
-                type="button"
-                className="border-[1px] border-black rounded-3xl py-3 px-7 uppercase text-sm"
-              >
-                Login
-              </button>
-            </NavLink>
+            <p className="mb-2 text-left text-[13px] md:text-base ">
+              <span>Already have an account?</span>
+              <NavLink to="/login">
+                <span className="ml-1 text-blue-600">Login</span>
+              </NavLink>
+            </p>
           </form>
         </section>
       </div>
