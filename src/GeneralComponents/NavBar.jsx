@@ -52,8 +52,8 @@ const NavBar = () => {
           icon={<Wallet size={24} />}
           name="wallets"
           onClick={() => {
-            setActivePage("wallets");
             navigate("/wallets");
+            setActivePage("wallets");
           }}
           className={`${activePage === "wallets" ? "text-primaryColor" : ""}`}
         />
@@ -61,8 +61,8 @@ const NavBar = () => {
           icon={<PieChart size={24} />}
           name="weekly spendings"
           onClick={() => {
-            setActivePage("weekly-spendings");
             navigate(`/weeks/${weeks[0].id}`);
+            setActivePage("weekly-spendings");
           }}
           className={`${
             activePage === "weekly-spendings" ? "text-primaryColor" : ""
