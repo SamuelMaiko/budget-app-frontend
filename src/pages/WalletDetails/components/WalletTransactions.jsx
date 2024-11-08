@@ -48,7 +48,11 @@ const WalletTransactions = () => {
   return (
     <>
       {/* transactions div */}
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden ">
+      <div
+        className={`bg-white ${
+          transactions.length === 0 ? "" : "mb-[10rem]"
+        }  shadow-lg rounded-lg overflow-hidden `}
+      >
         {transactions &&
           transactions.map((transaction) => {
             return (

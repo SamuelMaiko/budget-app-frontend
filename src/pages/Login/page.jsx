@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import instance from "../../axios/instance";
 import { createNewCookie } from "../../Cookies/Cookie";
 import excavator2 from "../../assets/budget1.jpeg";
+import { clearAll } from "../../HelperFunctions/clearAllStorage";
 
 const Login = () => {
   const [username, setUsername] = React.useState("");
@@ -16,6 +17,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    // clear all the storage
+    clearAll();
 
     try {
       const response = await instance.post("/auth/login/", {

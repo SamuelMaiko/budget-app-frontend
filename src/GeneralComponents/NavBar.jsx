@@ -15,7 +15,7 @@ const NavBar = () => {
   // const [username, setUsername] = useState(() => getCookie("username"));
   const { weeks, setWeeks } = useWeekContext();
   const [profile, setProfile] = useState(null);
-  const { activePage, setActivePage } = useAppContext;
+  const { activePage, setActivePage } = useAppContext();
 
   useEffect(() => {
     if (pathname !== "/login" && pathname !== "/signup") {
