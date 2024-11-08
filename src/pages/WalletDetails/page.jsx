@@ -69,7 +69,9 @@ const WalletDetails = () => {
             See all
           </button>
         </div>
-        <WalletTransactions />
+        <div className="pb-[2rem]">
+          <WalletTransactions />
+        </div>
       </div>
     </div>
   );

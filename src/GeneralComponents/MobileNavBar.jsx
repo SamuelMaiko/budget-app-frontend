@@ -54,8 +54,8 @@ const MobileNavBar = () => {
         }
         name="wallets"
         onClick={() => {
-          setActivePage("wallets");
           navigate("/wallets");
+          setActivePage("wallets");
         }}
         className={`${activePage === "wallets" ? "text-primaryColor" : ""}`}
       />
@@ -76,8 +76,8 @@ const MobileNavBar = () => {
         }
         name="weekly spendings"
         onClick={() => {
-          setActivePage("weekly-spendings");
           navigate(`/weeks/${weeks[0].id}`);
+          setActivePage("weekly-spendings");
         }}
         className={`${
           activePage === "weekly-spendings" ? "text-primaryColor" : ""

@@ -48,7 +48,7 @@ const WalletTransactions = () => {
   return (
     <>
       {/* transactions div */}
-      <div className="bg-white shadow-lg mb-[10rem] md:mb-[10rem] rounded-lg overflow-hidden ">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden ">
         {transactions &&
           transactions.map((transaction) => {
             return (
@@ -57,7 +57,11 @@ const WalletTransactions = () => {
           })}
       </div>
       {/* no transactions found div */}
-      <div className={`pb-5 ${transactions.length == 0 ? "" : "hidden"}`}>
+      <div
+        className={`pb-5 ${
+          transactions.length == 0 ? "" : "hidden"
+        } text-[14px] text-gray-600 md:text-xl `}
+      >
         <p className="">No transactions are available!</p>
       </div>
     </>
