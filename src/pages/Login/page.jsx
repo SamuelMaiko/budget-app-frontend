@@ -18,19 +18,24 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     // clear all the storage
-    clearAll();
+    // clearAll();
 
     try {
       const response = await instance.post("/auth/login/", {
         username: username,
         password: password,
       });
+      // localStorage.setItem(
+      //   "access_token",
+      //   JSON.stringify(response.data.access)
+      // );
       createNewCookie("access_token", response.data.access);
       createNewCookie("refresh_token", response.data.refresh);
       // createNewCookie("username", response.data.user.username);
-      toast.success("Logged in successfully");
 
-      navigate("/wallets");
+      // navigate("/wallets");
+      toast.success("Logged in successfully");
+      window.location.href = "/wallets";
     } catch (error) {
       if (error.response && error.response.status) {
         const status = error.response.status;
