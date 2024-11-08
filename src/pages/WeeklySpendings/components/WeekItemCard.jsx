@@ -29,7 +29,7 @@ const WeekItemCard = ({ item }) => {
               <div className="w-[12rem] md:w-[37rem] h-[0.7rem] md:h-[1rem] bg-neutral-200 rounded-lg flex items-center mt-1">
                 <div
                   className="h-[0.7rem] md:h-[1rem] bg-primaryColor rounded-lg flex items-center pl-1 text-[11px] md:text-[15px]
-                   font-semibold whitespace-nowrap text-white"
+                   font-semibold whitespace-nowrap text-black"
                   style={{
                     width: `calc(${
                       Math.round(
@@ -37,7 +37,7 @@ const WeekItemCard = ({ item }) => {
                           parseInt(item.amount_allocated, 10)) *
                           100
                       ) || 0
-                    } % )`,
+                    }% )`,
                   }}
                 >
                   used{" "}
