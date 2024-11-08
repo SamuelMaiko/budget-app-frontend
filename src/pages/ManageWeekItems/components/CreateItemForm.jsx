@@ -23,6 +23,7 @@ const CreateItemForm = ({ setShowCreateForm, setItems }) => {
 
       toast.success("Item created successfully");
       setShowCreateForm(false);
+      setItemName("");
     } catch (error) {
       if (error.response && error.response.status) {
         const status = error.response.status;
